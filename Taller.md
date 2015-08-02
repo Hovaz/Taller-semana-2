@@ -18,6 +18,7 @@ P5: Considere el siguiente código. ¿Funciona, no funciona? Explique
 No porque el valor de la operación no se encuentra en el rango del sbyte
 
 P6: ¿Cuál es la diferencia entre un tipo int y un tipo short? ¿Cuándo utilizar el uno o el otro?
+
 P7: ¿Es posible hacer la siguiente asignación? explique su respuesta
 ushort variable = 59485;
 
@@ -76,3 +77,117 @@ a = 3  y b = 4
 25. para obtener acceso a los atributos de la case siempre que se necesiten
 
 26. 
+
+
+Retos
+
+C1: Escriba un programa que le informe al usuario el volumen y el área de un cilindro rectangular recto luego de solicitar el radio y la altura del cilindro.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace holi
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double a, r, area, volumen;
+            string altura, radio;
+            Console.WriteLine("porfavor ingrese el radio del cilindro");
+            radio = Console.ReadLine();
+            Console.WriteLine("porfavor ingrese la altura del cilindro");
+            altura = Console.ReadLine();
+
+            if ((double.TryParse(radio, out r)) && (double.TryParse(altura, out a))) 
+            {
+                area = (2 * Math.PI * r) * (a + r);
+                volumen = (Math.PI)*(r*r)*(a);
+                Console.WriteLine("el area del cilindro es = " + area);
+                Console.WriteLine("el volumen del cilindro es = " + volumen);
+                Console.ReadKey();
+
+                //Console.WriteLine("C:\\Users\\juanfh\\Desktop\\MiArchivo.txt");
+(prueba p11)
+
+            }
+
+        }
+    }
+}
+
+
+C2: escriba un programa que imprima en consola las siguientes operaciones:
+int a = 7;
+int b = 2;
+float c = 4;
+float d = 3;
+float result = a / b + c / d;
+
+¿El resultado es el que usted esperaba? en caso contrario, ¿Qué correcciones debe realizar al programa para que funcione como es de esperar (sin cambiar las declaraciones de a,b,c y d)?
+
+el resultado es 4.3 cuando debería ser 4.8, para que funcione es necesario que los int sean considerados como float en la suma así:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace c2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a = 7;
+            int b = 2;
+            float c = 4;
+            float d = 3;
+            float result = (float)a / (float)b + c / d;
+
+            Console.WriteLine(result);
+            Console.ReadKey();
+        }
+    }
+}
+
+C3: Realice un programa que encuentre los valores máximo y mínimos del arreglo { 4, 51, -7, 13, -99, 15, -8, 45, 90 }; utilizando Foreach loop.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace c3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] numero = new int[]{ 4, 51, -7, 13, -99, 15, -8, 45, 90 };
+            int Mayor = 0, Menor = 0, n = 0;
+
+            foreach (int element in numero)
+            {
+                if (element < Menor)
+                {
+                    Menor = element;
+                }
+                if (element > Mayor)
+                {
+                    Mayor = element;
+                }
+            }
+            Console.WriteLine("El mayor es = "+ Mayor);
+            Console.WriteLine("El menor es = "+ Menor);
+            Console.ReadKey();
+
+
+        }
+    }
+}
+
