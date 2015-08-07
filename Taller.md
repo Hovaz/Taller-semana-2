@@ -114,6 +114,23 @@ Para obtener acceso a los atributos de la case siempre que se necesiten.
 P26: ¿El código que se muestra funciona?
 No, porque X = -5 está fuera de contexto, es decir, x es una variable que se declara y usa dentro del ciclo for y por tanto al no estar dentro del for el compilador no entiende el x = -5 y no permite ejecutar el programa.
 
+P27: ¿Por qué se utiliza this.title en el método SetTitle?
+Para hacer uso de la variable title que se encuentra fuera del método.
+
+P28: Explique cómo funciona la línea wordCount = text.Split(' ').Length;
+Separa las palabras en espacios
+
+P29: ¿Qué puede decir acerca del método Console.WriteLine(“Hola mundo”)?
+Lo que se encuentra dentro del paréntesis funciona como método static, ya que por un momento este texto se convierte en una variable pero sin necesidad de convertirse en un objeto.
+
+P30: ¿Cuál es la diferencia entre los siguientes dos códigos? (Ayuda: lea de nuevo el primer párrafo)
+Que uno por ser estructura es de tipo valor y el otro es una clase.
+
+P31: ¿Qué implica la diferencia de tipo? explique con un ejemplo
+Los tipo valor se almacenan en el stack y por tanto los valores de objetos creados al no guardarse en el heap pierde sus propiedades una vez salen del método.
+
+
+
 
 Retos
 
@@ -226,4 +243,64 @@ namespace c3
         }
     }
 }
+C4: Escriba un programa que pregunte por un número de 1 a 7 y posteriormente imprima el día de la semana correspondiente (asuma que domingo es el 1). Utilice enumeraciones (enum).
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace dias
+{
+    class Program
+    {
+        enum Days { domingo, lunes, martes, miercoles, jueves, viernes, sabado };
+        static void Main(string[] args)
+        {
+            int numero;
+            string dato;
+            dato = Console.ReadLine();
+
+            if (int.TryParse(dato, out numero)) 
+            {
+                if (numero == 1) 
+                {
+                    Console.WriteLine(Days.domingo);
+                }
+                if (numero == 2)
+                {
+                    Console.WriteLine(Days.lunes);
+                }
+                if (numero == 3)
+                {
+                    Console.WriteLine(Days.martes);
+                }
+                if (numero == 4)
+                {
+                    Console.WriteLine(Days.miercoles);
+                } 
+                if (numero == 5)
+                {
+                    Console.WriteLine(Days.jueves);
+                } 
+                if (numero == 6)
+                {
+                    Console.WriteLine(Days.viernes);
+                } 
+                if (numero == 7)
+                {
+                    Console.WriteLine(Days.sabado);
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
+
+
+
+
+
+
 
